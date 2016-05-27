@@ -34,13 +34,13 @@ client.on('connect', function () {
 // Netbeast apps need to accept the port to be launched by parameters
 var argv = require('minimist')(process.argv.slice(2))
 
-app.use('/', express.static('public'))
-
 app.get('/', function (req, res, next) {
   var color = req.query.color || 'FFFFFF'
   setColor(color)
   next()
 })
+
+app.use('/', express.static('public'))
 
 var server = app.listen(argv.port || 31416, function () {
   var host = server.address().address
