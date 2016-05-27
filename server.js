@@ -23,6 +23,13 @@ process.env.NETBEAST = 'localhost:8000'
 var express = require('express')
 var app = express()
 var beast = require('netbeast')
+var mqtt = require('mqtt')
+
+var client = mqtt.connect('mqtt://test.mosca.io')
+
+client.on('connect', function () {
+  client.subscribe('notifications')
+})
 
 // Netbeast apps need to accept the port to be launched by parameters
 var argv = require('minimist')(process.argv.slice(2))
@@ -51,4 +58,5 @@ var server = app.listen(argv.port || 31416, function () {
 
 function setColor (color) {
   beast('lights').set({color: '#' + color.toString(), power: 'on'})
+  client.publish('notifications', 'Color changed: ' + color.toString().toUpperCase())
 }
