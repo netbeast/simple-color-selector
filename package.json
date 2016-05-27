@@ -1,5 +1,5 @@
 {
-  "name": "sampleApp",
+  "name": "simple-color-selector",
   "version": "1.0.0",
   "description": "A repo with code about how to make simple Netbeast apps.",
   "main": "server.js",
