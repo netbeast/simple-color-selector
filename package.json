@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A repo with code about how to make simple Netbeast apps.",
   "main": "server.js",
+  "logo": "logo.png",
   "dependencies": {
     "express": "^4.12.3",
     "minimist": "^1.1.0",
